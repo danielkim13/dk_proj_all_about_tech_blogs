@@ -1,7 +1,4 @@
-const Router = require("express").Router();
-const res = require("express/lib/response");
-const router = require(".");
-const sequelize = require("../../config/connection");
+const router = require("express").Router();
 const { Post, User, Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
@@ -117,3 +114,5 @@ router.delete("/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;
