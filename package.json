@@ -1,0 +1,21 @@
+{
+  "name": "dk_proj_all_about_tech_blogs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielkim13/dk_proj_all_about_tech_blogs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielkim13/dk_proj_all_about_tech_blogs/issues"
+  },
+  "homepage": "https://github.com/danielkim13/dk_proj_all_about_tech_blogs#readme"
+}
