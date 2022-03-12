@@ -80,7 +80,7 @@ router.get("/post/:id", async (req, res) => {
 
   const singlePost = dbGetData.get({ plain: true });
   res
-    .render("/single-post", {
+    .render("single-post", {
       singlePost,
       loggedIn: true,
     })
