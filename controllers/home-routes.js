@@ -34,4 +34,61 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("login");
+});
+
+router.get("/signup", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("signup");
+});
+
+router.get("/post/:id", async (req, res) => {
+  const dbGetData = await Post.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: ["id", "title", "created_at", "post_body"],
+    include: [
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username", "github"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["username", "github"],
+      },
+    ],
+  });
+  if (!dbGetData) {
+    res.status(404).json({ message: "No post found with this id" });
+    return;
+  }
+
+  const singlePost = dbGetData.get({ plain: true });
+  res
+    .render("single-post", {
+      singlePost,
+      loggedIn: true,
+    })
+
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 module.exports = router;
