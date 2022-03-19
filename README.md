@@ -93,6 +93,10 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 
 <hr />
 
+## Screenshot of the application
+
+![All About Tech Blogs](/public/img/allAboutTech.gif)
+
 ## all about tech blogs deployed URL (heroku)
 
-TBD
+[Deployed Application Link](https://all-about-tech-blogs.herokuapp.com/)
