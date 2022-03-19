@@ -15,7 +15,11 @@ router.get("/", async (req, res) => {
 router.post("/", withAuth, async (req, res) => {
   try {
     if (req.session) {
-      const dbCommentData = await Comment.create(req.body);
+      const dbCommentData = await Comment.create({
+        comment_text: req.body.comment_text,
+        post_id: req.body.post_id,
+        user_id: req.session.user_id,
+      });
       res.json(dbCommentData);
     }
   } catch (err) {

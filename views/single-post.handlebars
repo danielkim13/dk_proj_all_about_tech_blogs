@@ -1,0 +1,24 @@
+ <section class="column mr-4">
+ <a href="/dashboard" class="is-pulled-right"> &larr; back to dashboard</a>
+ </section>
+
+{{> post-info singlePost}}
+
+{{#if loggedIn}}
+<form class="comment-form">
+  <div>
+    <textarea class="ml-5" name="comment-body" style="resize:none" rows="3" cols="100"></textarea>
+  </div>
+
+  <div>
+    <button class="button is-warning ml-5 mt-2" type="submit">add comment</button>
+  </div>
+  
+</form>
+{{/if}}
+
+{{> comments singlePost.comments}}
+
+{{#if loggedIn}}
+<script src="/public/javascript/comment.js"></script>
+{{/if}}
