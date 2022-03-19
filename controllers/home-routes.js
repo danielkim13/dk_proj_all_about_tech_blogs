@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
+const withAuth = require('../utils/auth')
 
 // get all posts for homepage
 router.get("/", async (req, res) => {
@@ -51,7 +52,7 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-router.get("/post/:id", async (req, res) => {
+router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const dbGetData = await Post.findOne({
       where: {
